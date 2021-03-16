@@ -1,0 +1,17 @@
+org 100h
+
+MOV AX,0000H
+MOV SI,1300H
+MOV CX,05H
+MOV DX,00H
+loop: ADD AL,[SI]
+    INC SI
+    INC DX
+    CMP CX,DX
+    JNZ loop
+
+DIV CL
+MOV [1400H],AX
+HLT
+
+ret
